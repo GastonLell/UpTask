@@ -1,6 +1,3 @@
-export const generateId = () => {
-    const random = Math.random().toString(32).substring(2);
-    const date = Date.now().toString(32).substring(2);
+const generateId = () => Math.random().toString(32).substring(2) + Date.now().toString(32).substring(2);
 
-    return random + date;
-}
+export default generateId;
