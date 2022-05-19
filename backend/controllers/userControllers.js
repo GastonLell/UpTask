@@ -51,7 +51,7 @@ export const authentication = async (req, res) => {
             _id: user._id,
             name: user.name,
             email: user.email,
-            token: generateJWT(),
+            token: generateJWT(user._id),
         })
     } else {
         const error = new Error('El password es incorrecto');
@@ -161,5 +161,13 @@ export const newPassword = async (req, res) => {
     }
 
     res.json({ token, password })
+
+}
+
+export const profile = async (req, res) => {
+
+    const {user} = req;
+
+    res.json(user)
 
 }
